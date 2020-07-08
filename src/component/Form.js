@@ -43,15 +43,19 @@ class Form extends React.Component{
         const plural=this.state.list.length<2
         return(
         <div>
-           <p> {list.length} {plural?  'chose à faire'  :  'choses à faire'} </p>
+           <p className={plural? 'uk-text-success':'uk-text-warning'}> {list.length} {plural?  'chose à faire'  :  'choses à faire'} </p>
                
             
             
-            <input value={this.state.addTodo} type="text" id='addTodo' placeholder='ajouter quelque chose' onChange={this.myChangeHandler}></input>
-            <button id="add" onClick={this.addElement}>Ajouter</button>
+            <input className="uk-input  uk-form-width-medium" value={this.state.addTodo} type="text" id='addTodo' placeholder='ajouter quelque chose' onChange={this.myChangeHandler}></input>
+            <button className="uk-button uk-button-primary" id="add" onClick={this.addElement}>Ajouter</button>
             <ul>
                 {list.map((task,index)=>{
-                    return<li><Task key={index} task={task}/> <button id="delete" onClick={this.deleteElement.bind(this,index)}>Supp</button></li>
+                    return<li className="form-success" key={index}>
+                        <Task  task={task}/> 
+                        <button id="delete" className="uk-button uk-button-danger" onClick={this.deleteElement.bind(this,index)}>Supp</button>
+                        <hr class="uk-divider-icon"></hr>
+                        </li>
                 })}
             </ul>
 

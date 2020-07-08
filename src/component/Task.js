@@ -14,7 +14,7 @@ class Task extends React.Component{
     }
     render(){
         return(
-            <span className={this.state.check? 'checked':''}> <button id="check" className={this.state.check? 'done':''} onClick={this.checkElement.bind(this)}> Done </button> -- {this.state.task} -- </span>
+            <span className={this.state.check? 'checked':''}> <button id="check" className={this.state.check? ' done ':'uk-button uk-button-primary'} onClick={this.checkElement.bind(this)}> Done </button> -- {this.state.task} -- </span>
         )
         
     }
